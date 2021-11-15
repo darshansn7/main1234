@@ -41,9 +41,3 @@
 
   - name : shell
     shell: systemctl start saga
-
-  - name: Systemd for Saga
-    ansible.builtin.systemd:
-      name: saga.service
-      state: started
-      enabled: yes

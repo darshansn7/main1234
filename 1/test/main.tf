@@ -100,7 +100,7 @@ module "vm2" {
   vm_admin_username                    = "aipuser2"
 
   #ansible
-  vm_packages          = ["jdk-11.0.12_linux-x64_bin.rpm", "elasticsearch-7.2.1-x86_64.rpm", "Saga-1.2.1.5.zip" ]
+  vm_packages          = ["jdk-11.0.12_linux-x64_bin.rpm", "elasticsearch-7.2.1-x86_64.rpm", "Saga_Server.zip" ]
 playbook     = "main2"
 zookeeper_host_name = "aipuser1"
 elasticsearch_host_name = "aipuser2"
@@ -190,27 +190,6 @@ elasticsearch_host_name = "aipuser2"
 }
 
 
-variable "disk_name" {
-  type = set(object(
-    {
-      name              = string
-      lun               = string
-      disk_size_gb      = string
-      create_option     = string
-      managed_disk_type = string
-
-    }
-  ))
-  default = [
-    {
-      name              = "st1"
-      lun               = "0"
-      disk_size_gb      = 100
-      create_option     = "Empty"
-      managed_disk_type = "Standard_LRS"
-  }]
-}
-
 
 
 module "vm4" {
@@ -220,7 +199,6 @@ module "vm4" {
   rg_location = "eastus"
   vnet_name   = "key-test-vnet"
   subnet_name = "default"
-elastic = false
   #niic
   nic_name                          = local.vm4_nic_name
   nic_config_name                   = "vm_internal"
@@ -272,4 +250,26 @@ elasticsearch_host_name = "aipuser2"
   # backup_time                    = "06:30"
   # retention_daily_count          = 10
   # soft_delete_enabled            = true
+    depends_on = [module.vm3]
+}
+
+variable "disk_name" {
+  type = set(object(
+    {
+      name              = string
+      lun               = string
+      disk_size_gb      = string
+      create_option     = string
+      managed_disk_type = string
+
+    }
+  ))
+  default = [
+    {
+      name              = "st1"
+      lun               = "0"
+      disk_size_gb      = 100
+      create_option     = "Empty"
+      managed_disk_type = "Standard_LRS"
+  }]
 }

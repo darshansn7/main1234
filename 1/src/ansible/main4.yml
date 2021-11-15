@@ -5,4 +5,4 @@
   become_method: sudo 
 
 - import_playbook: java.yml
-- import_playbook: aspire-worker-install
+- import_playbook: aspire-worker-install.yml

@@ -70,6 +70,5 @@ resource "null_resource" "install_package1" {
 
 variable "playbook" {
   type = string
-  
 }
 
