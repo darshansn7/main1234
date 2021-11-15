@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: no
+  become: yes
+  become_method: sudo 
+
+- import_playbook: java.yml
+- import_playbook: aspire-master-install.yml
