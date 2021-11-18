@@ -20,7 +20,7 @@
   #   command: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
   - name: install elasticsearch from copied rpm
-    yum: name=/tmp/elasticsearch-7.2.1-x86_64.rpm state=present
+    yum: name=/tmp/{{ elastic_data_url }} state=present
 
 
   - name: Creates directory

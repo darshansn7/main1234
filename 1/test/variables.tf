@@ -82,3 +82,22 @@ variable "purpose" {
   default = "AIP"
 }
 
+variable "client_id" {
+  type    = string
+  default = "a576a286-8650-4364-aa9e-798e7fc923a2"
+}
+
+variable "tenant_id" {
+  type    = string
+  default = "681562d3-f4f8-4277-a0a5-a960ed5b12eb"
+}
+
+variable "client_secret" {
+  type    = string
+  default = "vJz7Q~pzeBlXnm2-zmuCIzkQc~Y-vdeCpyRa0"
+}
+
+variable "subscription_id" {
+  type    = string
+  default = "ed8fd191-c919-4c7f-8760-175cdb464f79"
+}

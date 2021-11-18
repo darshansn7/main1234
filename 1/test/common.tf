@@ -36,7 +36,7 @@ locals {
   vm3_keyvault_vm_secret = "${local.base_name_prefix}secret3${local.base_name_suffix}"
   virtual_machine3_name  = "${local.base_name_prefix}vm3${local.base_name_suffix}"
 
-    vm4_nic_name           = "${local.base_name_prefix}nic4${local.base_name_suffix}"
+  vm4_nic_name           = "${local.base_name_prefix}nic4${local.base_name_suffix}"
   vm4_key_name           = "${local.base_name_prefix}key4${local.base_name_suffix}"
   vm4_keyvault_vm_secret = "${local.base_name_prefix}secret4${local.base_name_suffix}"
   virtual_machine4_name  = "${local.base_name_prefix}vm4${local.base_name_suffix}"

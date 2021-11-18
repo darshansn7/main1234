@@ -4,7 +4,3 @@ data "azurerm_subnet" "main" {
   resource_group_name  = var.vm_rg
 }
 
-data "azurerm_key_vault" "main" {
-  name                = var.key_vault_name
-  resource_group_name = var.vm_rg
-}

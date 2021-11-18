@@ -1,6 +1,7 @@
-###############################################################################
-####################  node 1 ###################################
 #############################################################################
+####################           ansible    ###################################
+#############################################################################
+
 resource "null_resource" "azcli" {
   provisioner "remote-exec" {
     inline = [
@@ -17,7 +18,7 @@ resource "null_resource" "azcli" {
   provisioner "local-exec" {
     command = "ansible-playbook -i ${azurerm_network_interface.vm_nic.private_ip_address}, --private-key ${var.private_key} ${path.module}/ansible/azcli.yml -u ${var.vm_admin_username}"
   }
-  depends_on = [azurerm_virtual_machine.linux_vm]
+  depends_on = [azurerm_linux_virtual_machine.linux_vm]
 }
 
 
@@ -63,12 +64,9 @@ resource "null_resource" "install_package1" {
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i ${azurerm_network_interface.vm_nic.private_ip_address}, --private-key ${var.private_key} ${path.module}/ansible/${var.playbook}.yml -u ${var.vm_admin_username}"
+    command = "ansible-playbook -i ${azurerm_network_interface.vm_nic.private_ip_address}, --private-key ${var.private_key} ${path.module}/ansible/main.yml -u ${var.vm_admin_username}"
   }
-  depends_on = [null_resource.packages_download]
+  depends_on = [null_resource.packages_download, local_file.playbooks, local_file.update_vars_yaml]
 }
 
-variable "playbook" {
-  type = string
-}
 

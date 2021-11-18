@@ -59,27 +59,10 @@ locals {
 
 resource "azurerm_ssh_public_key" "main" {
   name                = local.vm_name
-  resource_group_name = "key-test"
-  location            = "eastus"
+  resource_group_name = var.vm_rg
+  location            = var.rg_location
   public_key          = local.public_key
 }
-
-resource "azurerm_key_vault_secret" "push_vm_key" {
-  count        = var.vm_key == "" ? 1 : 0
-  name         = local.vm_name
-  value        = base64encode(local.private_key)
-  key_vault_id = data.azurerm_key_vault.main.id
-  depends_on   = [azurerm_virtual_machine.linux_vm, null_resource.create_key_file]
-}
-
-#push vm password to keyvault
-resource "azurerm_key_vault_secret" "push_vm_secret" {
-  name         = var.keyvault_vm_secret
-  value        = random_password.password.result
-  key_vault_id = data.azurerm_key_vault.main.id
-  depends_on   = [random_password.password, azurerm_virtual_machine.linux_vm]
-}
-
 
 
 
