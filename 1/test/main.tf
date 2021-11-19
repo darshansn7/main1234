@@ -47,7 +47,7 @@ module "vm1" {
   subscription_id         = var.subscription_id
   storage_account_name    = "adgsvmpackages"
   container_name          = "packages"
-custom_data = "eg.sh"
+  custom_data             = filebase64("${path.module}/eg.sh")
 common_tags = local.common_tags
   # #vm backup
   # recovery_services_vault_name = local.recovery_services_vault_name
@@ -107,7 +107,7 @@ module "vm2" {
   subscription_id         = var.subscription_id
   storage_account_name    = "adgsvmpackages"
   container_name          = "packages"
-custom_data = "eg.sh"
+  custom_data             = filebase64("${path.module}/eg.sh")
 common_tags = local.common_tags
   # #vm backup
   # recovery_services_vault_name = local.recovery_services_vault_name
@@ -167,7 +167,7 @@ module "vm3" {
   subscription_id         = var.subscription_id
   storage_account_name    = "adgsvmpackages"
   container_name          = "packages"
-custom_data = "eg.sh"
+  custom_data             = filebase64("${path.module}/eg.sh")
 common_tags = local.common_tags
   # #vm backup
   # recovery_services_vault_name = local.recovery_services_vault_name
@@ -216,7 +216,7 @@ module "vm4" {
   vm_os_disk_storage_account_type = "Standard_LRS"
   vm_computer_name                = "aipuser4"
   vm_admin_username               = "aipuser4"
-  custom_data = "eg.sh"
+  custom_data             = filebase64("${path.module}/eg.sh")
 
   #ansible
   vm_packages             = ["jdk-11.0.12_linux-x64_bin.rpm", "python-lxml-3.2.1-4.el7.x86_64.rpm", "aspire-4.0-SNAPSHOT.tar.gz"]
