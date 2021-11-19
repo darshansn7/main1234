@@ -7,7 +7,7 @@ module "vm1" {
   source = "./../src"
   #
   vm_rg       = "aianoaddarrsg01"
-  rg_location = "eastus"
+  rg_location = "eastus2"
   vnet_name   = "aianoaddapvpc01"
   subnet_name = "aianoaddazviz01"
 
@@ -67,7 +67,7 @@ module "vm2" {
   source = "./../src"
   #
   vm_rg       = "aianoaddarrsg01"
-  rg_location = "eastus"
+  rg_location = "eastus2"
   vnet_name   = "aianoaddapvpc01"
   subnet_name = "aianoaddazviz01"
 
@@ -127,7 +127,7 @@ module "vm3" {
   source = "./../src"
   #
   vm_rg       = "aianoaddarrsg01"
-  rg_location = "eastus"
+  rg_location = "eastus2"
   vnet_name   = "aianoaddapvpc01"
   subnet_name = "aianoaddazviz01"
 
@@ -190,7 +190,7 @@ module "vm4" {
   source = "./../src"
   #
   vm_rg       = "aianoaddarrsg01"
-  rg_location = "eastus"
+  rg_location = "eastus2"
   vnet_name   = "aianoaddapvpc01"
   subnet_name = "aianoaddazviz01"
   #niic
